@@ -22,10 +22,12 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, String employer, String location, String positionType, String coreCompetency) {
+    public Job(int id, String name, Employer acme, Location desert, PositionType quality_control, CoreCompetency persistence) {
         this();
         this.name = name;
     }
+
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
