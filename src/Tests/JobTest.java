@@ -8,53 +8,37 @@ import javax.lang.model.element.Name;
 import javax.xml.namespace.QName;
 import static org.junit.Assert.*;
 
-public class JobTest extends JobField   {
+public class JobTest {
 
-    public JobTest(String value) {
-        super(value);
-//    private int id;
-//    private int nextId = 1;
-//    private String name;
-//    private Employer employer;
-//    private Location location;
-//    private PositionType positionType;
-//    private CoreCompetency coreCompetency;
-//
-//
-//    public JobTest() {
-//        id = nextId;
-//        nextId++;
-//    }
-//
-//    public JobTest(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
-//        this();
-//        this.id = id;
-//        this.name = name;
-//        this.employer = employer;
-//        this.location = location;
-//        this.positionType = positionType;
-//        this.coreCompetency = coreCompetency;
-//    }
-//
-//    @Before
-//    public void testSettingJobId() {
-//        id = nextId;
-//        nextId++;
-//        Job job1 = new Job(id, "Product tester", employer, location, positionType, coreCompetency);
-//        Job job2 = new Job(id, "Full-Stack Developer", employer, location, positionType, coreCompetency);
-//    }
-//
+    Job job1;
+    Job job2;
+
+    @Before
+    public void createJobObject() {
+
+        job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+    }
+
+    @Test
+    public void testSettingJobId() {
+        assertTrue(job1.getId() != job2.getId());
+        assertTrue(job2.getId() - job1.getId() >= 1);
+
+    }
+}
 //    @Test
 //    public void testJobConstructorSetsAllFields() {
-//        Job job = new Job(id, "Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+//        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 //        assertEquals("value", id, .001);
 //
 //    }
 //
 //    @Test
 //    public void testJobsForEquality() {
-//        Job job = new Job(id, "Full-Stack Developer", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-//        Job job1 = new Job(id, "Full-Stack Developer", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+//        Job job = new Job("Full-Stack Developer", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+//        Job job1 = new Job("Full-Stack Developer", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 //        assertFalse(job != job1);
 //    }
 //
@@ -79,5 +63,5 @@ public class JobTest extends JobField   {
 //    public void ifJobContainsData() {
 //        assertTrue(Job.ifJobContainsDataForIdField(id, true));
 //    }
-    }
-}
+//    }
+//
