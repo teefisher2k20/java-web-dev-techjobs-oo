@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Job {
 
 
-
     private int id;
     private static int nextId = 1;
 
@@ -20,13 +19,12 @@ public class Job {
     //  the 'id' field.
 
 
-
     public Job() {
         id = nextId;
         nextId++;
     }
 
-    public Job (String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -37,10 +35,8 @@ public class Job {
     }
 
 
-
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
-
 
 
     @Override
@@ -55,7 +51,6 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
@@ -105,6 +100,38 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+    public String toString() {
 
+        if ((name.equals("")) && (employer.getValue() == null) && (location.getValue() == null) && (positionType.getValue() == null) && (coreCompetency.getValue() == null)) {
+            return "OOPS! This job does not seem to exist";
+        }
+        if(name.equals("")){
+            this.name="Data not available";
+        }
+        if(employer.getValue() == null){
+            employer=new Employer("Data not available");
+            this.employer=employer;
+        }
+        if(location.getValue() == null){
+            location=new Location("Data not available");
+            this.location=location;
+        }
+        if(positionType.getValue() == null){
+            positionType=new PositionType("Data not available");
+            this.positionType=positionType;
+        }
+        if(coreCompetency.getValue() == null){
+            coreCompetency=new CoreCompetency("Data not available");
+            this.coreCompetency=coreCompetency;
+        }
+        return "\n" +
+                "ID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                "\n";
+
+    }
 }
-

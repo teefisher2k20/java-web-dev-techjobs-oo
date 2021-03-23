@@ -9,7 +9,6 @@ public abstract class JobField {
 
 
     public JobField() {
-
         id = nextId;
         nextId++;
     }

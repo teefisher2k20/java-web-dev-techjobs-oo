@@ -3,6 +3,7 @@ package Tests;
 import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
+import static org.junit.Assert.assertEquals;
 
 import javax.lang.model.element.Name;
 import javax.xml.namespace.QName;
@@ -41,6 +42,11 @@ public class JobTest {
         assertNotEquals(job1.getId(), job2.getId());
     }
 
+    @Test
+    public void blankLineBeforeAfterJob() {
+        String text = job1.toString();
+        assertTrue(text.contains("\n"));
+    }
 
 }
 
